@@ -1,5 +1,7 @@
 # Sink
 
+[![Gem Version](https://badge.fury.io/rb/sink_utility.svg)](http://badge.fury.io/rb/sink_utility)
+
 Sink was inspired by the DDoS of github and was created to help keep its users secure in knowing that their repo is safer as it's shared among several hosting services rather than one.
 
 ## Installation
