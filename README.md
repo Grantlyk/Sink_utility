@@ -6,7 +6,7 @@ Sink was inspired by the DDoS of github and was created to help keep its users s
 
 Add this line to your application's Gemfile:
 
-    gem 'sink'
+    gem 'sink_utility'
 
 And then execute:
 
@@ -14,14 +14,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sink
+    $ gem install sink_utility
 
 ## Usage
 
 ### Basic
 Currently Sink is in its very early stages and therefore has basic functionality, the basic idea behind sink version 0.1.0 is to be able to "Sink" (Sync) a github/bitbucket repo with a bitbucket/github repo. To use the software you will first need a github/bitbucket repo and an account on both services, once you have the repo that you want to "back up" on the opposite hosting service, you must go to the opposite hosting service and create a repo, then you may continue with this setup.
 
-** Sink can currently only be used for one Repo at a time
 
 ### Setup
 To begin setup run:
