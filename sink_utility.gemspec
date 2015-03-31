@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["grant@nespite.io"]
   spec.description   = %q{Sink was inspired by the DDoS of github and was created to help keep its users secure in knowing that their repo is safer as it's shared among several hosting services rather than one}
   spec.summary       = %q{Sink is a command line tool created to sync your github to your bitbucket}
-  spec.homepage      = "http://www.nespite.io"
+  spec.homepage      = "https://github.com/Grantlyk/Sink_utility"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
