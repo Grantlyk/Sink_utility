@@ -47,8 +47,8 @@ module SinkUtility
     def current_users
       store = YAML::Store.new("data.yml")
       current_users = []
-      current_users << "Bitbucket: " + store.transaction { store[:bitbucket_user] }
-      current_users << "Github: " + store.transaction { store[:github_user] }
+      current_users << "Bitbucket: " + store.transaction { store[:bitbucket_user] } if store.transaction { store[:bitbucket_user] }
+      current_users << "Github: " + store.transaction { store[:github_user] } if store.transaction { store[:github_user] }
       return current_users
     end
   end
