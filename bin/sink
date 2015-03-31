@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+require 'sink_utility'
+
+user = SinkUtility::User.new
+initit = SinkUtility::Initialize.new
+
+case ARGV[0]
+  when "setup"
+    repo_type = nil
+    puts "Is your current git repo a github repo or a bitbucket repo?"
+    repo_type = STDIN.gets.chomp
+    case repo_type.downcase
+      when "bitbucket"
+        initit.bitbucket()
+        puts "Please enter your github username"
+          username = STDIN.gets.chomp
+        puts "Please enter the name of your Github repo"
+          repo_name = STDIN.gets.chomp
+        initit.remote_add(repo_type, username, repo_name)
+      when "github"
+        initit.github()
+        puts "Please enter your bitbucket username"
+          username = STDIN.gets.chomp
+        puts "Please enter the name of your Bitbucket repo"
+          repo_name = STDIN.gets.chomp
+        initit.remote_add(repo_type, username, repo_name)
+      else
+        puts "Invalid entry"
+    end
+  when "init"
+    user.setup(ARGV[2])
+  when "all"
+    store = YAML::Store.new("data.yml")
+    setup_check = store.transaction { store[:setup_complete] } if store.transaction { store[:setup_complete] }
+    if setup_check == true
+      `git push github HEAD`
+      `git push bitbucket HEAD`
+    else
+      puts "Please run sink setup first"
+    end
+  when "github"
+    `git push github HEAD` if store.transaction { store[:setup_complete] }
+  when "bitbucket"
+    `git push bitbucket HEAD` if store.transaction { store[:setup_complete] }
+  when "version"
+    puts SinkUtility::VERSION
+  when "me"
+    puts user.current_users()
+  else
+    puts "Command not recognised, soz"
+end
